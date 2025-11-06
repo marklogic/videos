@@ -9,7 +9,7 @@ Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affi
 ### Notes:
 
 * You can load the example data using the Flux import command listed below.
-* A TDE template is also required to run these examples. An example script for loading a TDE template is listed below. For more information, For more information, see [Template Driven Extraction (TDE)](https://docs.progress.com/bundle/marklogic-server-develop-server-side-apps-12/page/topics/TDE.html).
+* A TDE template is also required to run these examples. An example script for loading a TDE template is listed below. For more information, see [Template Driven Extraction (TDE)](https://docs.progress.com/bundle/marklogic-server-develop-server-side-apps-12/page/topics/TDE.html).
 
 ## Export to CSV 
 In the example, replace these values:
@@ -27,7 +27,7 @@ In the example, replace these values:
 ### Export to S3
 In the example, replace these values:
   * `username` - Your MarkLogic username
-  * `password` - Your MarkLogic password
+  * `password` - Your MarkLogic password 
   * `port` - The MarkLogic port for your app server
   *    `s3a://ml-peter-bucket/csv/` - The address of your S3 storage
 #### (MaxOS/Linux)
