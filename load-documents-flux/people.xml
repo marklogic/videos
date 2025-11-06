@@ -1,0 +1,12 @@
+<people xmlns="org:example">
+  <person>
+    <id>1</id>
+    <first>George</first>
+    <last>Washington</last>
+  </person>
+  <person>
+    <id>2</id>
+    <first>Betsy</first>
+    <last>Ross</last>
+  </person>
+</people>
