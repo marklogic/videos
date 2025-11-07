@@ -21,7 +21,14 @@ Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affi
 
 ## Load JSON in JSON Lines format (Windows)
 
-TO COME
+```
+bin\flux import-aggregate-json-files ^
+    --json-lines ^
+    --path PATH/TO/presidents.jsonl ^
+    --connection-string "db-user:p4ssw0rd@localhost:8000" ^
+    --permissions rest-reader,read,rest-writer,update ^
+    --collections president
+```
 
 ## Load separate XML documents from an XML file based on an element (MaxOS/Linux)
 
