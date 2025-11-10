@@ -37,9 +37,18 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \
   *Adjust the ports as needed for your environment*
 
 * `-e MARKLOGIC_INIT=true`: Initializes MarkLogic 
-* `-e MARKLOGIC_ADMIN_USERNAME='admin'`: Sets admin username to "admin". Replace with your username.
-* `-e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337'`: Sets the admin password. Replace with your password.
+* `-e MARKLOGIC_ADMIN_USERNAME='[admin]'`: Sets admin username to "admin". Replace with your username.
+* `-e MARKLOGIC_ADMIN_PASSWORD='[Areally!PowerfulPassword1337]'`: Sets the admin password. Replace with your password.
 * `progressofficial/marklogic-db`: Uses the Progress Software official MarkLogic image
 
 ## Get the logs for a container
 `docker logs [hash of container]`
+
+## View the running MarkLogic Docker container (and any other running containers)
+`docker ps`
+
+## Stop a MarkLogic container
+`docker stop [hash of container]`
+
+## Start a MarkLogic container
+`docker start [hash of container]`
