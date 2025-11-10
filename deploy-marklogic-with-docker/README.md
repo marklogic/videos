@@ -1,5 +1,7 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
+# Deploy MarkLogic with Docker
+
 MarkLogic Server is a multi-model database that has both NoSQL and trusted enterprise data management capabilities. It is the most secure multi-model database, and it’s deployable in any environment.  This video introduces deploying MarkLogic in a Docker container.  
 
 Getting Started: https://github.com/marklogic/marklogic-docker⁠
@@ -14,7 +16,11 @@ Rancher Desktop: https://rancherdesktop.io/
 
 #marklogic 
 
-# Deploy MarkLogic with Docker
+## Install Docker Desktop or Rancher Desktop
+To deploy a MarkLogic container, download [Docker Desktop](https://www.docker.com/products/docker-desktop/) or an open-source alternative such as [Rancher Desktop](https://rancherdesktop.io/).
+
+## Start Docker or Rancher Desktop
+After installing Docker or Rancher desktop, start the application.
 
 ## Get the official Docker image
 `docker pull progressofficial/marklogic-db`
