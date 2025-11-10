@@ -1,58 +1,45 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-# Load Data with MarkLogic Flux
+MarkLogic Server is a multi-model database that has both NoSQL and trusted enterprise data management capabilities. It is the most secure multi-model database, and it’s deployable in any environment.  This video introduces deploying MarkLogic in a Docker container.  
 
-## Example data
+Getting Started: https://github.com/marklogic/marklogic-docker⁠
 
-- [presidents.jsonl](presidents.jsonl)
-- [people.xml](people.xml)
-- [example.rdf.zip](example.rdf.zip)
+Readme: https://github.com/marklogic/marklogic-docker/blob/master/README.md 
 
-## Load JSON in JSON Lines format (MaxOS/Linux)
+MarkLogic Server image on DockerHub: https://hub.docker.com/r/progressofficial/marklogic-db
 
+Docker Desktop: http://docker.com 
+
+Rancher Desktop: https://rancherdesktop.io/ 
+
+#marklogic 
+
+# Deploy MarkLogic with Docker
+
+## Get the official Docker image
+`docker pull progressofficial/marklogic-db`
+## Run a MarkLogic database server in a container
 ```
-./bin/flux import-aggregate-json-files \
-    --json-lines \
-    --path PATH/TO/presidents.jsonl \
-    --connection-string "db-user:p4ssw0rd@localhost:8000" \
-    --permissions rest-reader,read,rest-writer,update \
-    --collections president
+docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \ 
+     -e MARKLOGIC_INIT=true \
+     -e MARKLOGIC_ADMIN_USERNAME='admin' \
+     -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' \
+     progressofficial/marklogic-db
 ```
+### Explanation of commands
+* `-d -it`: Runs detached (background) in interactive mode with TTY
 
-## Load JSON in JSON Lines format (Windows)
+* `-p 8000:8000 -p 8001:8001 -p 8002:8002`: Maps three ports from container to host:
+8000: Application Services/Query Console
+8001: Admin Interface
+8002: Manage API
 
-```
-bin\flux import-aggregate-json-files ^
-    --json-lines ^
-    --path PATH/TO/presidents.jsonl ^
-    --connection-string "db-user:p4ssw0rd@localhost:8000" ^
-    --permissions rest-reader,read,rest-writer,update ^
-    --collections president
-```
+  *Adjust the ports as needed for your environment*
 
-## Load separate XML documents from an XML file based on an element (MaxOS/Linux)
+* `-e MARKLOGIC_INIT=true`: Initializes MarkLogic 
+* `-e MARKLOGIC_ADMIN_USERNAME='admin'`: Sets admin username to "admin". Replace with your username.
+* `-e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337'`: Sets the admin password. Replace with your password.
+* `progressofficial/marklogic-db`: Uses the Progress Software official MarkLogic image
 
-```
-./bin/flux import-aggregate-xml-files \
-    --path PATH/TO/people.xml \
-    --element person \
-    --namespace org:example \
-    --connection-string "db-user:p4ssw0rd@localhost:8000" \
-    --permissions rest-reader,read,rest-writer,update
-```
-
-## Load semantic triples from a compressed RDF file (MaxOS/Linux)
-
-```
-./bin/flux import-rdf-files \
-    --path PATH/TO/example.rdf.zip \
-    --connection-string "db-user:p4ssw0rd@localhost:8000" \
-    --permissions rest-reader,read,rest-writer,update \
-    --compression ZIP
-```
-
-## Query the loaded JSON or XML data with the MarkLogic Search API
-
-```
-curl --digest -u "db-user:p4ssw0rd" http://localhost:8000/v1/search?q=George
-```
+## Get the logs for a container
+`docker logs [hash of container]`
