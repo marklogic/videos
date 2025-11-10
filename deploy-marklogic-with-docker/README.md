@@ -30,9 +30,9 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \
 * `-d -it`: Runs detached (background) in interactive mode with TTY
 
 * `-p 8000:8000 -p 8001:8001 -p 8002:8002`: Maps three ports from container to host:
-8000: Application Services/Query Console
-8001: Admin Interface
-8002: Manage API
+  * 8000: Application Services/Query Console
+  * 8001: Admin Interface
+  * 8002: Manage API
 
   *Adjust the ports as needed for your environment*
 
