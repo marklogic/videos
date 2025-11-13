@@ -3,16 +3,12 @@ Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affi
 # Export Data with MarkLogic Flux
 
 ## Example data
+Save [presidents.jsonl](presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-date).
 
-- [presidents.jsonl](presidents.jsonl)
 
-### Notes:
-
-* You can load the example data using the Flux import command listed below.
-* A TDE template is also required to run these examples. An example script for loading a TDE template is listed below. For more information, see [Template Driven Extraction (TDE)](https://docs.progress.com/bundle/marklogic-server-develop-server-side-apps-12/page/topics/TDE.html).
 
 ### Load Example Data 
-#### (MaxOS/Linux)
+#### (MacOS/Linux)
 The following Flux command will load the example data in to a MarkLogic database. Run it from your MarkLogic Flux root directory with the `--path` and `--connection-string` values edited for your system.
 ```
 ./bin/flux import-aggregate-json-files \
@@ -22,7 +18,7 @@ The following Flux command will load the example data in to a MarkLogic database
     --permissions rest-reader,read,rest-writer,update \
     --collections president
 ```
-#### (Windows Powershell)
+#### (Windows PowerShell)
 ```
 ./bin/flux import-aggregate-json-files `
     --json-lines `
@@ -32,7 +28,7 @@ The following Flux command will load the example data in to a MarkLogic database
     --collections president
 ```
 ### Load TDE Template (XQuery)
-The following script will load a TDE template for the example data into your schemas database. Run it in Query Console with the Database menu set to your content database and the Query Type menu set to XQuery.
+This script loads a TDE template for the example data into your schemas database. The TDE template is required to run the examples on this page. Run it in Query Console with the Database menu set to your content database and the Query Type menu set to XQuery.
 ```
 xquery version "1.0-ml"; 
 
@@ -95,9 +91,8 @@ In the example, replace these values:
     --connection-string "username:password@localhost:port" \
     --query "op.fromView('main', 'presidents')" \
     --path destination
-
 ```
-#### (Windows Powershell)
+#### (Windows PowerShell)
 ```
 ./bin/flux export-delimited-files  `
     --connection-string "username:password@localhost:port"  `
@@ -120,8 +115,8 @@ In the example, replace these values:
     --Pcompression=gzip \
     --file-count 1
 ```
+#### (Windows PowerShell)
 ```
-#### (Windows Powershell)
 ./bin/flux export-delimited-files `
     --connection-string "username:password@localhost:port" `
     --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican'))" `
@@ -147,5 +142,14 @@ In the example, replace these values:
     --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican')).where(op.eq(op.col('StateOfBirth'), 'Ohio'))" \
     --jdbc-url "jdbc:postgresql://localhost/example?user=postgres&password=postgres" \
     --jdbc-driver "org.postgresql.Driver" \
+    --table "presidents"
+```
+#### (Windows PowerShell)
+  ```
+./bin/flux export-jdbc `
+    --connection-string "username:password@localhost:port" `
+    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican')).where(op.eq(op.col('StateOfBirth'), 'Ohio'))" \
+    --jdbc-url "jdbc:postgresql://localhost/example?user=postgres&password=postgres" `
+    --jdbc-driver "org.postgresql.Driver" `
     --table "presidents"
 ```
