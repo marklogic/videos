@@ -24,6 +24,12 @@ After installing Docker or Rancher Desktop, start the application.
 ## Get the official Docker image
 `docker pull progressofficial/marklogic-db`
 ## Run a MarkLogic database server in a container 
+In the example, replace these values:
+
+* `admin` - Your existing or new MarkLogic username.
+* `Areally!PowerfulPassword1337` - Your existing or new MarkLogic password.
+* `port` - The MarkLogic port for your app server
+
 ### (MacOS/Linux)
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \ 
@@ -32,8 +38,7 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \
      -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' \
      progressofficial/marklogic-db
 ```
-## Run a MarkLogic database server in a container 
-### (Windows Powershell)
+### (Windows PowerShell)
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 `
      -e MARKLOGIC_INIT=true `
@@ -41,21 +46,6 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 `
      -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' `
      progressofficial/marklogic-db
 ```
-
-### Explanation of commands
-* `-d -it`: Runs detached (background) in interactive mode with TTY
-
-* `-p 8000:8000 -p 8001:8001 -p 8002:8002`: Maps three ports from container to host:
-  * 8000: Application Services/Query Console
-  * 8001: Admin Interface
-  * 8002: Manage API
-
-  *Adjust the ports as needed for your environment*
-
-* `-e MARKLOGIC_INIT=true`: Initializes MarkLogic 
-* `-e MARKLOGIC_ADMIN_USERNAME='[admin]'`: Sets admin username to "admin". Replace with your username.
-* `-e MARKLOGIC_ADMIN_PASSWORD='[Areally!PowerfulPassword1337]'`: Sets the admin password. Replace with your password.
-* `progressofficial/marklogic-db`: Uses the Progress Software official MarkLogic image
 
 ## Get the logs for a container
 `docker logs [hash of container]`
