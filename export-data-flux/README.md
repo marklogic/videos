@@ -120,6 +120,7 @@ In the example, replace these values:
     --Pcompression=gzip \
     --file-count 1
 ```
+```
 #### (Windows Powershell)
 ./bin/flux export-delimited-files `
     --connection-string "username:password@localhost:port" `
@@ -128,7 +129,7 @@ In the example, replace these values:
     --s3-add-credentials `
     -Pcompression=gzip `
     --file-count 1
-
+```
 
 ### Export to JDBC-accessible database
 In the example, replace these values:
