@@ -19,11 +19,12 @@ Rancher Desktop: https://rancherdesktop.io/
 To deploy a MarkLogic container, download [Docker Desktop](https://www.docker.com/products/docker-desktop/) or an open-source alternative such as [Rancher Desktop](https://rancherdesktop.io/).
 
 ## Start Docker or Rancher Desktop
-After installing Docker or Rancher desktop, start the application.
+After installing Docker or Rancher Desktop, start the application.
 
 ## Get the official Docker image
 `docker pull progressofficial/marklogic-db`
-## Run a MarkLogic database server in a container (MacOS/Linux)
+## Run a MarkLogic database server in a container 
+### (MacOS/Linux)
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \ 
      -e MARKLOGIC_INIT=true \
@@ -31,7 +32,8 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \
      -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' \
      progressofficial/marklogic-db
 ```
-## Run a MarkLogic database server in a container (Windows Powershell)
+## Run a MarkLogic database server in a container 
+### (Windows Powershell)
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 `
      -e MARKLOGIC_INIT=true `
