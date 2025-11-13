@@ -30,7 +30,7 @@ The following Flux command will load the example data in to a MarkLogic database
     --connection-string "username:password@localhost:port" `
     --permissions rest-reader,read,rest-writer,update `
     --collections president
-
+```
 ### Load TDE Template (XQuery)
 The following script will load a TDE template for the example data into your schemas database. Run it in Query Console with the Database menu set to your content database and the Query Type menu set to XQuery.
 ```
