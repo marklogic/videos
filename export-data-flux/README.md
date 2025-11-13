@@ -24,7 +24,7 @@ View Optic API Documentation: https://docs.progress.com/bundle/marklogic-server-
 #marklogic #marklogicflux
 
 ## Example data
-Save [presidents.jsonl](presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-date).
+Save [presidents.jsonl](presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-data).
 
 
 
