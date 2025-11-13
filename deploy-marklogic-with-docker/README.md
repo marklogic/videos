@@ -2,7 +2,7 @@ Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affi
 
 # Deploy MarkLogic with Docker
 
-MarkLogic Server is a multi-model database that has both NoSQL and trusted enterprise data management capabilities. It is the most secure multi-model database, and it’s deployable in any environment.  This video introduces deploying MarkLogic in a Docker container.  
+MarkLogic Server is a multi-model database that has both NoSQL and trusted enterprise data management capabilities. It is the most secure multi-model database, and it’s deployable in any environment.  [This video](https://youtu.be/3PtWZi2c7Ts) introduces deploying MarkLogic in a Docker container.  
 
 
 Readme: https://github.com/marklogic/marklogic-docker/blob/master/README.md 
