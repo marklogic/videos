@@ -169,7 +169,7 @@ In the example, replace these values:
   ```
 ./bin/flux export-jdbc `
     --connection-string "username:password@localhost:port" `
-    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican')).where(op.eq(op.col('StateOfBirth'), 'Ohio'))" \
+    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican')).where(op.eq(op.col('StateOfBirth'), 'Ohio'))" `
     --jdbc-url "jdbc:postgresql://localhost/example?user=postgres&password=postgres" `
     --jdbc-driver "org.postgresql.Driver" `
     --table "presidents"
