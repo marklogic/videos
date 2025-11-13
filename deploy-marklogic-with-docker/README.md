@@ -28,7 +28,7 @@ In the example, replace these values:
 
 * `admin` - Your existing or new MarkLogic username.
 * `Areally!PowerfulPassword1337` - Your existing or new MarkLogic password.
-* `port` - The MarkLogic port for your app server
+* `port` - The MarkLogic port for your app server.
 
 ### (MacOS/Linux)
 ```
