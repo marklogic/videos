@@ -85,7 +85,7 @@ In the example, replace these values:
   * `username` - Your MarkLogic username
   * `password` - Your MarkLogic password
   * `port` - The MarkLogic port for your app server
-#### (MaxOS/Linux)
+#### (MacOS/Linux)
 ```
 ./bin/flux export-delimited-files \
     --connection-string "username:password@localhost:port" \
@@ -105,7 +105,7 @@ In the example, replace these values:
   * `password` - Your MarkLogic password 
   * `port` - The MarkLogic port for your app server
   *    `s3a://ml-peter-bucket/csv/` - The address of your S3 storage
-#### (MaxOS/Linux)
+#### (MacOS/Linux)
 ```
 ./bin/flux export-delimited-files \
     --connection-string "username:password@localhost:port" \
@@ -135,7 +135,7 @@ In the example, replace these values:
   * `org.postgresql.Driver` - The driver for your database
   * `presidents` - The name of the destination table
   
-#### (MaxOS/Linux)
+#### (MacOS/Linux)
   ```
 ./bin/flux export-jdbc \
     --connection-string "username:password@localhost:port" \
