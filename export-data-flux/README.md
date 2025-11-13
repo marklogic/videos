@@ -141,7 +141,7 @@ In the example, replace these values:
     --Pcompression=gzip \
     --file-count 1
 ```
-### (Windows PowerShell)
+### Windows PowerShell
 ```
 ./bin/flux export-delimited-files `
     --connection-string "username:password@localhost:port" `
