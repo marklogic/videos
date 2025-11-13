@@ -120,6 +120,16 @@ In the example, replace these values:
     --Pcompression=gzip \
     --file-count 1
 ```
+#### (Windows Powershell)
+./bin/flux export-delimited-files `
+    --connection-string "username:password@localhost:port" `
+    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican'))" `
+    --path "s3a://ml-peter-bucket/csv/" `
+    --s3-add-credentials `
+    -Pcompression=gzip `
+    --file-count 1
+
+
 ### Export to JDBC-accessible database
 In the example, replace these values:
   * `username` - Your MarkLogic username
