@@ -107,11 +107,8 @@ let $presidents :=
 
 return tde:template-insert("/presidents.xml", $presidents)
 ```
-
-
 ## Export to CSV 
 ### MacOS/Linux
-
 ```
 ./bin/flux export-delimited-files \
     --connection-string "username:password@localhost:port" \
@@ -151,7 +148,6 @@ In the example, replace these values:
     -Pcompression=gzip `
     --file-count 1
 ```
-
 ## Export to JDBC-accessible database
 In the example, replace these values:
   * `username` - Your MarkLogic username
@@ -160,7 +156,7 @@ In the example, replace these values:
   * `postgresql://localhost/example?user=postgres&password=postgres` - The url of your jdbc-accessible database
   * `org.postgresql.Driver` - The driver for your database
   * `presidents` - The name of the destination table
-  
+
 ### MacOS/Linux
   ```
 ./bin/flux export-jdbc \
