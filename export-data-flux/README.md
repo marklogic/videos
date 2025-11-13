@@ -23,13 +23,21 @@ View Optic API Documentation: https://docs.progress.com/bundle/marklogic-server-
 
 #marklogic #marklogicflux
 
+
+## Variables
+For all of the examples, replace these values with the appropriate values for your installation:
+
+*  `username` - Your MarkLogic username
+  * `password` - Your MarkLogic password
+  * `port` - The MarkLogic port for your app server
+  * `localhost` - Your MarkLogic hostname
+
 ## Example data
 Save [presidents.jsonl](presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-data).
 
 
-
 ### Load Example Data 
-#### (MacOS/Linux)
+#### MacOS/Linux
 The following Flux command will load the example data in to a MarkLogic database. Run it from your MarkLogic Flux root directory with the `--path` and `--connection-string` values edited for your system.
 ```
 ./bin/flux import-aggregate-json-files \
@@ -39,7 +47,7 @@ The following Flux command will load the example data in to a MarkLogic database
     --permissions rest-reader,read,rest-writer,update \
     --collections president
 ```
-#### (Windows PowerShell)
+#### Windows PowerShell
 ```
 ./bin/flux import-aggregate-json-files `
     --json-lines `
@@ -48,7 +56,7 @@ The following Flux command will load the example data in to a MarkLogic database
     --permissions rest-reader,read,rest-writer,update `
     --collections president
 ```
-### Load TDE Template (XQuery)
+## Load TDE Template (XQuery)
 This script loads a TDE template for the example data into your schemas database. The TDE template is required to run the examples on this page. Run it in Query Console with the Database menu set to your content database and the Query Type menu set to XQuery.
 ```
 xquery version "1.0-ml"; 
@@ -102,31 +110,28 @@ return tde:template-insert("/presidents.xml", $presidents)
 
 
 ## Export to CSV 
-In the example, replace these values:
-  * `username` - Your MarkLogic username
-  * `password` - Your MarkLogic password
-  * `port` - The MarkLogic port for your app server
-#### (MacOS/Linux)
+### MacOS/Linux
+
 ```
 ./bin/flux export-delimited-files \
     --connection-string "username:password@localhost:port" \
     --query "op.fromView('main', 'presidents')" \
     --path destination
 ```
-#### (Windows PowerShell)
+### Windows PowerShell
 ```
 ./bin/flux export-delimited-files  `
     --connection-string "username:password@localhost:port"  `
     --query "op.fromView('main', 'presidents')"  `
     --path destination
 ```
-### Export to S3
+## Export to S3
 In the example, replace these values:
   * `username` - Your MarkLogic username
   * `password` - Your MarkLogic password 
   * `port` - The MarkLogic port for your app server
   *    `s3a://ml-peter-bucket/csv/` - The address of your S3 storage
-#### (MacOS/Linux)
+### MacOS/Linux
 ```
 ./bin/flux export-delimited-files \
     --connection-string "username:password@localhost:port" \
@@ -136,7 +141,7 @@ In the example, replace these values:
     --Pcompression=gzip \
     --file-count 1
 ```
-#### (Windows PowerShell)
+### (Windows PowerShell)
 ```
 ./bin/flux export-delimited-files `
     --connection-string "username:password@localhost:port" `
@@ -147,7 +152,7 @@ In the example, replace these values:
     --file-count 1
 ```
 
-### Export to JDBC-accessible database
+## Export to JDBC-accessible database
 In the example, replace these values:
   * `username` - Your MarkLogic username
   * `password` - Your MarkLogic password
@@ -156,7 +161,7 @@ In the example, replace these values:
   * `org.postgresql.Driver` - The driver for your database
   * `presidents` - The name of the destination table
   
-#### (MacOS/Linux)
+### MacOS/Linux
   ```
 ./bin/flux export-jdbc \
     --connection-string "username:password@localhost:port" \
@@ -165,7 +170,7 @@ In the example, replace these values:
     --jdbc-driver "org.postgresql.Driver" \
     --table "presidents"
 ```
-#### (Windows PowerShell)
+### Windows PowerShell
   ```
 ./bin/flux export-jdbc `
     --connection-string "username:password@localhost:port" `

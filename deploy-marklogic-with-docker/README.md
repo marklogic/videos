@@ -23,14 +23,18 @@ After installing Docker or Rancher Desktop, start the application.
 
 ## Get the official Docker image
 `docker pull progressofficial/marklogic-db`
+
 ## Run a MarkLogic database server in a container 
 In the example, replace these values:
 
 * `admin` - Your existing or new MarkLogic username.
 * `Areally!PowerfulPassword1337` - Your existing or new MarkLogic password.
-* `port` - The MarkLogic port for your app server.
+* `-p 8000:8000 -p 8001:8001 -p 8002:8002` - This command maps three ports from the container to the host machine.  Adjust the port values as needed.
+  * Port 8000 (App Server)
+  * Port 8001 (Admin interface)
+  * Port 8002 (Manage API)
 
-### (MacOS/Linux)
+### MacOS/Linux
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \ 
      -e MARKLOGIC_INIT=true \
@@ -38,7 +42,7 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \
      -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' \
      progressofficial/marklogic-db
 ```
-### (Windows PowerShell)
+### Windows PowerShell
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 `
      -e MARKLOGIC_INIT=true `
