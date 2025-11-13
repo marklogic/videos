@@ -88,6 +88,12 @@ In the example, replace these values:
     --path destination
 
 ```
+#### (Windows Powershell)
+./bin/flux export-delimited-files  `
+    --connection-string "username:password@localhost:port"  `
+    --query "op.fromView('main', 'presidents')"  `
+    --path destination
+
 ### Export to S3
 In the example, replace these values:
   * `username` - Your MarkLogic username
