@@ -1,6 +1,27 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
 # Export Data with MarkLogic Flux
+With MarkLogic Flux, you can quickly export documents, rows, and triples from MarkLogic into a variety of destinations like local filesystems, Amazon S3, Azure storage, JDBC-accessible databases, and many more.  
+
+You can download MarkLogic and MarkLogic Flux for free.   
+
+YouTube video: https://youtu.be/Xf42vmFIDqo
+
+Code Examples: https://github.com/marklogic/videos/tree/main/export-data-flux
+
+Download MarkLogic Flux: https://github.com/marklogic/flux/releases 
+
+View MarkLogic Flux Documentation: https://marklogic.github.io/flux 
+
+Download MarkLogic: https://developer.marklogic.com/products/marklogic-server
+
+View MarkLogic Documentation: https://docs.progress.com/category/marklogic-content-hub
+
+View TDE Templates Documentation: https://docs.progress.com/bundle/marklogic-server-develop-server-side-apps-12/page/topics/TDE.html
+
+View Optic API Documentation: https://docs.progress.com/bundle/marklogic-server-develop-server-side-apps-12/page/topics/OpticAPI.html
+
+#marklogic #marklogicflux
 
 ## Example data
 Save [presidents.jsonl](presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-date).
