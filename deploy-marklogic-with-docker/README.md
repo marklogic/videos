@@ -23,7 +23,7 @@ After installing Docker or Rancher desktop, start the application.
 
 ## Get the official Docker image
 `docker pull progressofficial/marklogic-db`
-## Run a MarkLogic database server in a container
+## Run a MarkLogic database server in a container (MacOS/Linux)
 ```
 docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \ 
      -e MARKLOGIC_INIT=true \
