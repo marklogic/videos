@@ -31,6 +31,15 @@ docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 \
      -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' \
      progressofficial/marklogic-db
 ```
+## Run a MarkLogic database server in a container (Windows Powershell)
+```
+docker run -d -it -p 8000:8000 -p 8001:8001 -p 8002:8002 `
+     -e MARKLOGIC_INIT=true `
+     -e MARKLOGIC_ADMIN_USERNAME='admin' `
+     -e MARKLOGIC_ADMIN_PASSWORD='Areally!PowerfulPassword1337' `
+     progressofficial/marklogic-db
+```
+
 ### Explanation of commands
 * `-d -it`: Runs detached (background) in interactive mode with TTY
 
