@@ -11,53 +11,6 @@ Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affi
 * You can load the example data using the Flux import command listed below.
 * A TDE template is also required to run these examples. An example script for loading a TDE template is listed below. For more information, see [Template Driven Extraction (TDE)](https://docs.progress.com/bundle/marklogic-server-develop-server-side-apps-12/page/topics/TDE.html).
 
-## Export to CSV 
-In the example, replace these values:
-  * `username` - Your MarkLogic username
-  * `password` - Your MarkLogic password
-  * `port` - The MarkLogic port for your app server
-#### (MaxOS/Linux)
-```
-./bin/flux export-delimited-files \
-    --connection-string "username:password@localhost:port" \
-    --query "op.fromView('main', 'presidents')" \
-    --path destination
-
-```
-### Export to S3
-In the example, replace these values:
-  * `username` - Your MarkLogic username
-  * `password` - Your MarkLogic password 
-  * `port` - The MarkLogic port for your app server
-  *    `s3a://ml-peter-bucket/csv/` - The address of your S3 storage
-#### (MaxOS/Linux)
-```
-./bin/flux export-delimited-files \
-    --connection-string "username:password@localhost:port" \
-    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican'))" \
-    --path "s3a://ml-peter-bucket/csv/" \
-    --s3-add-credentials \
-    --Pcompression=gzip \
-    --file-count 1
-```
-### Export to JDBC-accessible database
-In the example, replace these values:
-  * `username` - Your MarkLogic username
-  * `password` - Your MarkLogic password
-  * `port` - The MarkLogic port for your app server
-  * `postgresql://localhost/example?user=postgres&password=postgres` - The url of your jdbc-accessible database
-  * `org.postgresql.Driver` - The driver for your database
-  * `presidents` - The name of the destination table
-  
-#### (MaxOS/Linux)
-  ```
-./bin/flux export-jdbc \
-    --connection-string "username:password@localhost:port" \
-    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican')).where(op.eq(op.col('StateOfBirth'), 'Ohio'))" \
-    --jdbc-url "jdbc:postgresql://localhost/example?user=postgres&password=postgres" \
-    --jdbc-driver "org.postgresql.Driver" \
-    --table "presidents"
-```
 ### Load Example Data (MaxOS/Linux)
 The following Flux command will load the example data in to a MarkLogic database. Run it from your MarkLogic Flux root directory with the `--path` and `--connection-string` values edited for your system.
 ```
@@ -119,4 +72,53 @@ let $presidents :=
 </template>
 
 return tde:template-insert("/presidents.xml", $presidents)
+```
+
+
+## Export to CSV 
+In the example, replace these values:
+  * `username` - Your MarkLogic username
+  * `password` - Your MarkLogic password
+  * `port` - The MarkLogic port for your app server
+#### (MaxOS/Linux)
+```
+./bin/flux export-delimited-files \
+    --connection-string "username:password@localhost:port" \
+    --query "op.fromView('main', 'presidents')" \
+    --path destination
+
+```
+### Export to S3
+In the example, replace these values:
+  * `username` - Your MarkLogic username
+  * `password` - Your MarkLogic password 
+  * `port` - The MarkLogic port for your app server
+  *    `s3a://ml-peter-bucket/csv/` - The address of your S3 storage
+#### (MaxOS/Linux)
+```
+./bin/flux export-delimited-files \
+    --connection-string "username:password@localhost:port" \
+    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican'))" \
+    --path "s3a://ml-peter-bucket/csv/" \
+    --s3-add-credentials \
+    --Pcompression=gzip \
+    --file-count 1
+```
+### Export to JDBC-accessible database
+In the example, replace these values:
+  * `username` - Your MarkLogic username
+  * `password` - Your MarkLogic password
+  * `port` - The MarkLogic port for your app server
+  * `postgresql://localhost/example?user=postgres&password=postgres` - The url of your jdbc-accessible database
+  * `org.postgresql.Driver` - The driver for your database
+  * `presidents` - The name of the destination table
+  
+#### (MaxOS/Linux)
+  ```
+./bin/flux export-jdbc \
+    --connection-string "username:password@localhost:port" \
+    --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican')).where(op.eq(op.col('StateOfBirth'), 'Ohio'))" \
+    --jdbc-url "jdbc:postgresql://localhost/example?user=postgres&password=postgres" \
+    --jdbc-driver "org.postgresql.Driver" \
+    --table "presidents"
 ```
