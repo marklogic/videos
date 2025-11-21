@@ -1,19 +1,20 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
 # Prepare for AI: How to Split Data with MarkLogic Flux 
+MarkLogic Flux provides a unified, scalable, and optimized data pipeline for processing documents and generating the necessary components—specifically chunks and vector embeddings—required to build effective Retrieval-Augmented Generation (RAG) systems that leverage MarkLogic's vector query capabilities.
 
-These  command will split text for consumption into an external system, LLM models, and AI systems.  
+These commands will split and import data into MarkLogic.
 
 ## Common Parameters
 `--path`: The path to the file to be split.
 
 `--connection-string`:  Update this with your username, password, and port.
 
-`--splitter-json-pointer`: Sets the field to split. The examples splitt the `description` field. Update this reference to split a different field.
+`--splitter-json-pointer`: Sets the field to split. The examples split the `description` field. Update this reference to split a different field.
 
 `--splitter-max-chunk-size`: Sets the max chunk size (in characters). 
 
-`--splitter-max-overlap-size`: The overlap size. This helps ensure loss of context.  A value of 50 specifies that up to 50 characters from the end of one chunk will be repeated at the beginning of the next chunk.
+`--splitter-max-overlap-size`: The overlap size. This helps prevent loss of context.  A value of 50 specifies that up to 50 characters from the end of one chunk will be repeated at the beginning of the next chunk.
 
 `--collections`: The name of the collection in MarkLogic.
 
@@ -26,7 +27,7 @@ These  command will split text for consumption into an external system, LLM mode
 This example splits the description field after every 500 characters at the nearest word boundary.  It also specifies a maximum overlap of 50 characters between the end of one chunk and the beginning of the next chunk. 
 
 
-### MaxOS/Linux
+### macOS/Linux
 
 
 ```
@@ -57,7 +58,7 @@ This example splits the description field after every 500 characters at the near
   `--splitter-regex`: This specifies the RegEx pattern used to split the data.  
 
 
-  #### MacOS/Linux
+  #### macOS/Linux
   ```
   ./bin/flux import-files \
   --path "presidents.jsonl" \
@@ -95,7 +96,7 @@ You can create custom splitters. A good use case for using a custom splitter wit
   --collections presidents_custom_split \
   --permissions rest-reader,read,rest-writer,update
 ```
-#### Windows Powershell
+#### Windows PowerShell
 ```
 ./bin/flux import-files `
   --path "presidents.jsonl" `
