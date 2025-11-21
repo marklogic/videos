@@ -40,15 +40,15 @@ This example splits the description field after every 500 characters at the near
   --collections presidents_split\
   --permissions rest-reader,read,rest-writer,update
   ```
-### Windows PowerShell
+### Windows
 ```
-./bin/flux import-files `
-  --path "presidents.jsonl" `
-  --connection-string "user:password@localhost:8000" `
-  --splitter-json-pointer "/description" `
-  --splitter-max-chunk-size 500 `
-  --splitter-max-overlap-size 50 `
-  --collections presidents_split `
+.\bin\flux import-files ^
+  --path "presidents.jsonl" ^
+  --connection-string "user:password@localhost:8000" ^
+  --splitter-json-pointer "/description" ^
+  --splitter-max-chunk-size 500 ^
+  --splitter-max-overlap-size 50 ^
+  --collections presidents_split_windowscmd ^
   --permissions rest-reader,read,rest-writer,update
   ```
 
@@ -69,21 +69,21 @@ This example splits the description field after every 500 characters at the near
   --collections presidents_regex_multi \
   --permissions rest-reader,read,rest-writer,update
 ```
-  #### Windows PowerShell
+  #### Windows 
   ```
-./bin/flux import-files `
-  --path "presidents.jsonl" `
-  --connection-string "user:password@localhost:8000" `
-  --splitter-json-pointer "/description" `
-  --splitter-regex "[.!?]\s+" `
-  --splitter-max-chunk-size 1000 `
-  --collections presidents_regex_multi `
+.\bin\flux import-files ^
+  --path "presidents.jsonl" ^
+  --connection-string "user:password@localhost:8000" ^
+  --splitter-json-pointer "/description" ^
+  --splitter-regex "[.!?]\s+" ^
+  --splitter-max-chunk-size 1000 ^
+  --collections presidents_regex_multi ^
   --permissions rest-reader,read,rest-writer,update
 ```
 ### Custom Splitter
 You can create custom splitters. A good use case for using a custom splitter with Flux is when you need to implement advanced, sophisticated, or domain-specific text-splitting strategies that go beyond the capabilities of Flux's native default or RegEx options. For example, splitting medical records by diagnosis.
 
-####  MacOS/Linux
+####  macOS/Linux
 
 ```
 ./bin/flux import-files \
@@ -96,15 +96,15 @@ You can create custom splitters. A good use case for using a custom splitter wit
   --collections presidents_custom_split \
   --permissions rest-reader,read,rest-writer,update
 ```
-#### Windows PowerShell
+#### Windows
 ```
-./bin/flux import-files `
-  --path "presidents.jsonl" `
-  --connection-string "admin:admin@localhost:8000" `
-  --splitter-json-pointer "/description" `
-  --splitter-custom-class "com.example.presidential.PresidentialBiographySplitter" `
-  -SmaxChunkSize=1000 `
-  -SaddMetadata=true `
-  --collections presidents_custom_split `
+.\bin\flux import-files ^
+  --path "presidents.jsonl" ^
+  --connection-string "admin:admin@localhost:8000" ^
+  --splitter-json-pointer "/description" ^
+  --splitter-custom-class "com.example.presidential.PresidentialBiographySplitter" ^
+  -SmaxChunkSize=1000 ^
+  -SaddMetadata=true ^
+  --collections presidents_custom_split ^
   --permissions rest-reader,read,rest-writer,update
   ```
