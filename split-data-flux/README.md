@@ -1,6 +1,6 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-#  How to Split Data for AI Applications with MarkLogic Flux 
+#  Split Data for AI Applications with MarkLogic Flux 
 MarkLogic Flux provides a unified, scalable, and optimized data pipeline for processing documents and generating the necessary components—specifically chunks and vector embeddings—required to build effective Retrieval-Augmented Generation (RAG) systems that leverage MarkLogic's vector query capabilities.
 
 These commands will split and import data into MarkLogic.
@@ -8,7 +8,7 @@ These commands will split and import data into MarkLogic.
 ## Common Parameters
 `--path`: The path to the file to be split.
 
-`--connection-string`:  Update this with your username, password, and port.
+`--connection-string`:  Update this with your username, password, hostname, and port.
 
 `--splitter-json-pointer`: Sets the field to split. The examples split the `description` field. Update this reference to split a different field.
 
@@ -37,7 +37,7 @@ This example splits the description field after every 500 characters at the near
   --splitter-json-pointer "/description" \
   --splitter-max-chunk-size 500 \
   --splitter-max-overlap-size 50 \
-  --collections presidents_split\
+  --collections presidents_split \
   --permissions rest-reader,read,rest-writer,update
   ```
 ### Windows
