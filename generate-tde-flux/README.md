@@ -20,7 +20,7 @@ Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affi
 ### Windows PowerShell
 ```
 bin\flux import-delimited-files ^
-  --path ..\data\employees.csv ^
+  --path ..\data\employees.csv.gz ^
   --connection-string "flux-example-user:password@localhost:8000" ^
   --collections employees ^
   --permissions flux-example-role,read,flux-example-role,update ^
