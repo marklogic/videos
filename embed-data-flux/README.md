@@ -1,6 +1,6 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-# Embed Data with MarkLogic Flux
+# Embeddings for AI Applications with MarkLogic Flux
 
 Vector embeddings are numerical representations of text that capture semantic meaning, allowing AI systems to understand and compare content based on context rather than just keywords. MarkLogic Flux can generate these vector embeddings for your documents, enabling you to build powerful AI applications like semantic search, recommendation systems, and Retrieval-Augmented Generation (RAG) using MarkLogic Server's vector query capabilities.
 
