@@ -1,0 +1,54 @@
+Load and Classify Data with MarkLogic Flux and Semaphore
+*CLI code follows
+Code for file importing into MarkLogic using Flux
+./Documents/Flux/bin/flux import-aggregate-json-files \
+  --json-lines \
+  --path Documents/Flux/presidents.jsonl \
+  --connection-string "admin:admin@localhost:8000" \
+  --permissions rest-reader,read,rest-writer,update \
+  --collections president
+
+Classification Configuration of Semaphore during Flux import process
+/Documents/Flux/bin/flux import-aggregate-json-files \
+  --json-lines \
+  --path /Documents/Flux/presidents.jsonl \
+  --connection-string "admin:admin@localhost:8000/Documents" \
+  --permissions rest-reader,read,rest-writer,update \
+  --collections president \
+  --classifier-host semaphore-server \
+  --classifier-port 8443 \
+  --classifier-protocol https \
+  --classifier-token-path /api/auth/token \
+  --classifier-path /api/classify 
+
+Example Code before any classification is performed
+{"id": "doc001", "text": "President Lincoln delivered the Gettysburg Address in 1863."}
+{"id": "doc002", "text": "President Roosevelt introduced the New Deal during the Great Depression."}
+
+Example Code after Semaphore classication has been performed
+{
+  "id": "doc001",
+  "text": "President Lincoln delivered the Gettysburg Address in 1863.",
+  "classification": {
+    "rulebaseId": "historical-events-v1",
+    "concepts": [
+      {
+        "conceptId": "US_PRESIDENT",
+        "label": "U.S. President",
+        "score": 0.98,
+        "explanations": [
+          {
+            "ruleId": "r-0101",
+            "matched": "President Lincoln",
+            "window": "exact match"
+          }
+        ]
+      }
+}
+
+ 
+          
+       
+        
+    
+   
