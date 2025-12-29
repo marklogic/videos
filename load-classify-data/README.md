@@ -1,61 +1,59 @@
-Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved. <br>
+Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-<b>Load and Classify Data with MarkLogic Flux and Semaphore</b> <br>
+# Load and Classify Data with MarkLogic Flux and Semaphore
 
-With MarkLogic Flux, you can load data into MarkLogic using a Command Line Interface (CLI). This video shows how to compose your Executable, Command Name and Options CLI and use the Query Console to setup the classification configuration of Semaphore to get you ready for a future project in data enrichment. <br>
+With MarkLogic Flux, you can load data into MarkLogic using a Command Line Interface (CLI) and classify that data using Semaphore. This video shows how to compose your Executable, Command Name, and Options, use Query Console to review your loaded data, and configure your Flux command to leverage Semaphore for classification.
 
-<b>Code for file importing into MarkLogic using Flux</b><br>
+## Example data
 
-./Documents/Flux/bin/ import-aggregate-json-files \ <br>
-  --json-lines \ <br>
-  --path Documents/Flux/presidents.jsonl \  <br>
-  --connection-string "user:password@localhost:8000" \  <br>
-  --permissions rest-reader,read,rest-writer,update \  <br>
-  --collections president  <br>
+- [presidents.jsonl](presidents.jsonl)
 
-<b>Classification Configuration of Semaphore during Flux import process</b><br>
-
-/Documents/Flux/bin/flux import-aggregate-json-files \  <br>
-  --json-lines \  <br>
-  --path /Documents/Flux/presidents.jsonl \  <br>
-  --connection-string "user:password@localhost:8000/Documents" \  <br>
+## Code for importing data into MarkLogic using Flux 
+### macOS/Linux
+```
+./Documents/Flux/bin/flux import-aggregate-json-files \
+  --json-lines \
+  --path Documents/Flux/presidents.jsonl \
+  --connection-string "user:password@localhost:8000" \
   --permissions rest-reader,read,rest-writer,update \
-  --collections president \  <br>
-  --classifier-host semaphore-server \  <br>
-  --classifier-port 8443 \  <br>
-  --classifier-protocol https \  <br>
-  --classifier-token-path /api/auth/token \  <br>
-  --classifier-path /api/classify  <br>
+  --collections president
+```
+### Windows
+```
+.\Documents\Flux\bin\flux import-aggregate-json-files ^
+  --json-lines ^
+  --path Documents/Flux/presidents.jsonl ^
+  --connection-string "user:password@localhost:8000" ^
+  --permissions rest-reader,read,rest-writer,update ^
+  --collections president
+  ```
 
-<b>Example Code before any classification is performed</b><br>
-
-{"id": "doc001", "text": "President Lincoln delivered the Gettysburg Address in 1863."}  <br>
-{"id": "doc002", "text": "President Roosevelt introduced the New Deal during the Great Depression."}  <br>
-
-<b>Example Code after Semaphore classication has been performed</b><br>
-{
-  "id": "doc001", <br>
-  "text": "President Lincoln delivered the Gettysburg Address in 1863.",  <br>
-  "classification": {  <br>
-    "rulebaseId": "historical-events-v1",  <br>
-    "concepts": [  <br>
-      {  <br>
-        "conceptId": "US_PRESIDENT",  <br>
-        "label": "U.S. President",  <br>
-        "score": 0.98,  <br>
-        "explanations": [  <br>
-          {  <br>
-            "ruleId": "r-0101",  <br>
-            "matched": "President Lincoln",  <br>
-            "window": "exact match"  <br>
-          }  <br>
-        ]  <br>
-      }  <br>
-}  <br>
-
- 
-          
-       
-        
-    
-   
+## Code for configuring Flux for Semaphore classification 
+### macOS/Linux
+```
+./Documents/Flux/bin/flux import-aggregate-json-files \
+  --json-lines \
+  --path /Documents/Flux/presidents.jsonl \
+  --connection-string "user:password@localhost:8000/Documents" \
+  --permissions rest-reader,read,rest-writer,update \
+  --collections president \
+  --classifier-host semaphore-server \
+  --classifier-port 8443 \
+  --classifier-protocol https \
+  --classifier-token-path /api/auth/token \
+  --classifier-path /api/classify
+```
+### Windows
+```
+.\Documents\Flux\bin\flux import-aggregate-json-files ^
+  --json-lines ^
+  --path \Documents\Flux\presidents.jsonl ^
+  --connection-string "user:password@localhost:8000/Documents" ^
+  --permissions rest-reader,read,rest-writer,update ^
+  --collections president ^
+  --classifier-host semaphore-server ^
+  --classifier-port 8443 ^
+  --classifier-protocol https ^
+  --classifier-token-path /api/auth/token ^
+  --classifier-path /api/classify
+```
