@@ -11,7 +11,7 @@ For all of the examples, replace these values with the appropriate values for yo
   * `localhost` - Your MarkLogic hostname
 
 ## Example data
-Save [presidents.jsonl](presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-data).
+Save [presidents.jsonl](../presidents.jsonl) to a directory on your system.  The directory will be used in the `--path` value in [Load Example Data](#load-example-data).
 
 
 ### Load Example Data 
