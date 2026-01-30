@@ -1,6 +1,6 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-#  Split Data for AI Applications with MarkLogic Flux 2.X
+#  Split Data for AI Applications with MarkLogic Flux 2.x
 MarkLogic Flux provides a unified, scalable, and optimized data pipeline for processing documents and generating the necessary components—specifically chunks and vector embeddings—required to build effective Retrieval-Augmented Generation (RAG) systems that leverage MarkLogic's vector query capabilities.
 
 These commands will split and import data into MarkLogic.
