@@ -1,6 +1,6 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-# Export Data with MarkLogic Flux
+# Export Data with MarkLogic Flux 2
 
 ## Variables
 For all of the examples, replace these values with the appropriate values for your installation:
