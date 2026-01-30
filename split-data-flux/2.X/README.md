@@ -83,7 +83,7 @@ This example splits the description field after every 500 characters at the near
 ### Custom Splitter
 You can create custom splitters. A good use case for using a custom splitter with Flux is when you need to implement advanced, sophisticated, or domain-specific text-splitting strategies that go beyond the capabilities of Flux's native default or RegEx options. For example, splitting medical records by diagnosis.
 
-Note: Single-letter options from Flux 1.x (such as -P and -C) are no longer supported. These have been replaced with their standard long-form option names. This change fixes a bug where argument values starting with a dash followed by a single letter (e.g., -Psome-value) were incorrectly interpreted as option flags. See https://github.com/marklogic/flux/releases/tag/2.0.0 for more information.
+**Note**: Single-letter options from Flux 1.x (such as -P and -C) are no longer supported. These have been replaced with their standard long-form option names. This change fixes a bug where argument values starting with a dash followed by a single letter (e.g., -Psome-value) were incorrectly interpreted as option flags. See https://github.com/marklogic/flux/releases/tag/2.0.0 for more information.
 
 ####  macOS/Linux
 
