@@ -1,6 +1,6 @@
 Copyright (c) 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 
-#  Split Data for AI Applications with MarkLogic Flux 
+#  Split Data for AI Applications with MarkLogic Flux 2.X
 MarkLogic Flux provides a unified, scalable, and optimized data pipeline for processing documents and generating the necessary components—specifically chunks and vector embeddings—required to build effective Retrieval-Augmented Generation (RAG) systems that leverage MarkLogic's vector query capabilities.
 
 These commands will split and import data into MarkLogic.
@@ -83,6 +83,8 @@ This example splits the description field after every 500 characters at the near
 ### Custom Splitter
 You can create custom splitters. A good use case for using a custom splitter with Flux is when you need to implement advanced, sophisticated, or domain-specific text-splitting strategies that go beyond the capabilities of Flux's native default or RegEx options. For example, splitting medical records by diagnosis.
 
+Note: Single-letter options from Flux 1.x (such as -P and -C) are no longer supported. These have been replaced with their standard long-form option names. This change fixes a bug where argument values starting with a dash followed by a single letter (e.g., -Psome-value) were incorrectly interpreted as option flags. See https://github.com/marklogic/flux/releases/tag/2.0.0 for more information.
+
 ####  macOS/Linux
 
 ```
@@ -91,8 +93,8 @@ You can create custom splitters. A good use case for using a custom splitter wit
   --connection-string "admin:admin@localhost:8000" \
   --splitter-json-pointer "/description" \
   --splitter-custom-class "com.example.presidential.PresidentialBiographySplitter" \
-  -SmaxChunkSize=1000 \
-  -SaddMetadata=true \
+  --splitter-custom-maxChunkSize 1000 \
+  --splitter-custom-addMetadata true \
   --collections presidents_custom_split \
   --permissions rest-reader,read,rest-writer,update
 ```
@@ -103,8 +105,8 @@ You can create custom splitters. A good use case for using a custom splitter wit
   --connection-string "admin:admin@localhost:8000" ^
   --splitter-json-pointer "/description" ^
   --splitter-custom-class "com.example.presidential.PresidentialBiographySplitter" ^
-  -SmaxChunkSize=1000 ^
-  -SaddMetadata=true ^
+  --splitter-custom-maxChunkSize 1000 ^
+  --splitter-custom-addMetadata true ^
   --collections presidents_custom_split ^
   --permissions rest-reader,read,rest-writer,update
   ```
