@@ -113,7 +113,7 @@ In the example, replace these values:
     --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican'))" \
     --path "s3a://ml-peter-bucket/csv/" \
     --s3-add-credentials \
-    --option compression=gzip \
+    --spark-prop compression=gzip \
     --file-count 1
 ```
 ### Windows
@@ -123,7 +123,7 @@ In the example, replace these values:
   --query "op.fromView('main', 'presidents').select(['LastName', 'Party', 'DateOfBirth', 'StateOfBirth']).where(op.eq(op.col('Party'), 'Republican'))" ^
   --path "s3a://ml-peter-bucket/csv/" ^
   --s3-add-credentials ^
-  --option compression=gzip ^
+  --spark-prop compression=gzip ^
   --file-count 1
 ```
 ## Export to JDBC-accessible database
