@@ -93,20 +93,22 @@ You can create custom splitters. A good use case for using a custom splitter wit
   --connection-string "admin:admin@localhost:8000" \
   --splitter-json-pointer "/description" \
   --splitter-custom-class "com.example.presidential.PresidentialBiographySplitter" \
-  --splitter-custom-maxChunkSize 1000 \
-  --splitter-custom-addMetadata true \
+  --splitter-prop maxChunkSize=1000 \
+  --splitter-prop addMetadata=true \
   --collections presidents_custom_split \
   --permissions rest-reader,read,rest-writer,update
 ```
 #### Windows
 ```
+
 .\bin\flux import-files ^
   --path "presidents.jsonl" ^
   --connection-string "admin:admin@localhost:8000" ^
   --splitter-json-pointer "/description" ^
   --splitter-custom-class "com.example.presidential.PresidentialBiographySplitter" ^
-  --splitter-custom-maxChunkSize 1000 ^
-  --splitter-custom-addMetadata true ^
+  --splitter-prop maxChunkSize=1000 ^
+  --splitter-prop addMetadata=true ^
   --collections presidents_custom_split ^
   --permissions rest-reader,read,rest-writer,update
+
   ```
